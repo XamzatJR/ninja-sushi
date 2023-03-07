@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheFooter from "@/components/TheFooter.vue"
+import TheHeader from "@/components/TheHeader.vue"
+</script>
 
 <template>
-  <h1>Ninja-Sushi</h1>
+  <TheHeader />
+  <RouterView />
+  <TheFooter />
 </template>
 
 <style scoped></style>
