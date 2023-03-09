@@ -4,8 +4,10 @@ import TheHeader from "@/components/TheHeader.vue"
 </script>
 
 <template>
-  <TheHeader />
-  <RouterView />
+  <div class="container mx-auto pt-4">
+    <TheHeader />
+    <RouterView />
+  </div>
   <TheFooter />
 </template>
 
