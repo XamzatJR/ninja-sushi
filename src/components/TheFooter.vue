@@ -1,6 +1,6 @@
 <template>
     <footer class="bg-white w-full py-16 rounded-t-3xl">
-        <div class="container mx-auto flex <lg:(flex-col) justify-between items-start">
+        <div class="container mx-auto flex <lg:(flex-col-reverse items-center) justify-between items-start">
             <div class="flex flex-col justify-start gap-4">
             <AppLogo />
             <div class="flex gap-3.5">
@@ -13,7 +13,7 @@
             </div>
             <div class="text-ninja-69 text-sm font-medium">© Ninja Sushi. All rights reserved.</div>
             </div>
-            <div class="flex justify-between flex-grow-[0.6]">
+            <div class="lg:(flex justify-between flex-grow-[0.6]) grid grid-cols-2 grid-rows-2 gap-y-8">
                 <nav class="flex flex-col gap-2">
                     <div class="text-ninja-60 font-normal text-sm">Навигация:</div>
                     <router-link to="/" class="footer-item">Главная</router-link>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col gap-3 w-min">
+            <div class="flex flex-col gap-3 w-min <xl:hidden">
                 <strong class="text-ninja-70 text-4.5xl font-body">#NinjaSushi</strong>
                 <div class="text-ninja-69 text-base">Ninja Sushi в фотографиях наших клиентов</div>
                 <button class="text-ninja-250 font-medium py-4 bg-ninja-50 rounded-xl">Перейти в instagram</button>
