@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import AppLogo from '@/UI/AppLogo.vue'
-import IconBell from '@/assets/icons/IconBell.vue'
-import IconUser from '@/assets/icons/IconUser.vue'
-import IconCard from '@/assets/icons/IconCard.vue'
-import IconHeart from '@/assets/icons/IconHeart.vue'
-import IconPhone from '@/assets/icons/IconPhone.vue'
-import IconMenu from '@/assets/icons/IconMenu.vue'
+import AppLogo from '@/components/UI/AppLogo.vue'
+import IconBell from '@/components/icons/IconBell.vue'
+import IconUser from '@/components/icons/IconUser.vue'
+import IconCard from '@/components/icons/IconCard.vue'
+import IconHeart from '@/components/icons/IconHeart.vue'
+import IconPhone from '@/components/icons/IconPhone.vue'
+import IconMenu from '@/components/icons/IconMenu.vue'
 </script>
 
 <template>
