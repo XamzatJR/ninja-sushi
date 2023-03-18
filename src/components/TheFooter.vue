@@ -1,69 +1,89 @@
-<template>
-    <footer class="bg-white w-full py-16 rounded-t-3xl">
-        <div class="container mx-auto flex <lg:(flex-col-reverse items-center) justify-between items-start">
-            <div class="flex flex-col justify-start gap-4">
-            <AppLogo />
-            <div class="flex gap-3.5">
-                <a href="https://apps.apple.com/ua/app/ninja-sushi/id1437544985" target="_blank" rel="noopener noreferrer">
-                    <img src="/app-store.png" alt="App store">
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.ninjasushi.ninjasushi">
-                    <img src="/google-play.png" alt="Google play">
-                </a>
-            </div>
-            <div class="text-ninja-69 text-sm font-medium">© Ninja Sushi. All rights reserved.</div>
-            </div>
-            <div class="lg:(flex justify-between flex-grow-[0.6]) grid grid-cols-2 grid-rows-2 gap-y-8">
-                <nav class="flex flex-col gap-2">
-                    <div class="text-ninja-60 font-normal text-sm">Навигация:</div>
-                    <router-link to="/" class="footer-item">Главная</router-link>
-                    <router-link to="" class="footer-item">Меню</router-link>
-                    <router-link to="" class="footer-item">Доставка</router-link>
-                    <router-link to="" class="footer-item">Вакансии</router-link>
-                    <router-link to="" class="footer-item">Новости</router-link>
-                </nav>
-                <div class="flex flex-col gap-2">
-                    <div class="text-ninja-60 font-normal text-sm">Оформить заказ:</div>
-                    <a href="tel:+38-067-436-61-27" class="footer-item">+38 (067) 436 61 27</a>
-                    <a href="tel:+38-066-031-76-30" class="footer-item">+38 (066) 031 76 30</a>
-                    <a href="tel:+38-093-924-98-28" class="footer-item">+38 (093) 924 98 28</a>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <div class="text-ninja-60 font-normal text-sm">Время работы:</div>
-                    <b class="footer-item">с 11:00 до 22:45</b>
-                    <b class="footer-item">с 22.45 до 06.00</b>
-                    <div>Ночная доставка</div>
-                </div>
-                <div>
-                    <div class="text-ninja-60 mb-2 font-normal text-sm">Мы в соц. сетях:</div>
-                    <div class="flex gap-3 items-center">
-                        <button class="rounded-lg bg-ninja-69 w-7 h-7 flex items-end justify-center hover:bg-blue-700">
-                        <svg width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.90366 20.293V21.9982L6.89233 22L6.92547 19.7017C6.94369 18.4377 6.95866 16.3004 6.95871 14.9521L6.95876 12.5008H8.58831C10.3717 12.5008 10.438 12.4907 10.5844 12.1974C10.6272 12.1117 10.7352 11.3726 10.8461 10.4067C11.0238 8.85968 11.0301 8.75359 10.9532 8.62103C10.9082 8.54353 10.8117 8.43344 10.7388 8.37637C10.6126 8.27764 10.5161 8.27188 8.75132 8.2572L6.89643 8.24184L6.92146 6.67487C6.94835 4.99069 6.97333 4.80657 7.22955 4.40539C7.36693 4.19024 7.69964 3.96129 7.99902 3.8759C8.10145 3.84664 8.70751 3.80841 9.34577 3.79092C11.0024 3.74547 10.9276 3.84166 10.9041 1.78764C10.8892 0.4771 10.8855 0.43404 10.7739 0.271968C10.7029 0.168779 10.5883 0.084837 10.4735 0.0517896C10.2347 -0.0169511 8.10976 -0.0173659 7.36257 0.0511673C5.29337 0.240944 3.91178 1.28186 3.2583 3.14331C2.99182 3.90246 2.94401 4.35662 2.91677 6.38875L2.89189 8.24018L1.65874 8.25684C0.325459 8.27484 0.234545 8.29217 0.0833546 8.55743C0.0102625 8.68568 0 8.90855 0 10.3714C0 12.2024 0.0094113 12.2671 0.298726 12.4221C0.418627 12.4863 0.677502 12.5008 1.70785 12.5008H2.97014L2.9369 15.5443C2.91862 17.2182 2.90366 19.3552 2.90366 20.293Z" fill="white"/>
-                        </svg>
-                    </button>
-                    <button class="hover:bg-gradient-18 rounded-lg bg-ninja-69 w-7 h-7 flex items-center justify-center">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.80711 10.0575C6.80711 8.27942 8.24817 6.83758 10.0263 6.83758C11.8044 6.83758 13.2463 8.27942 13.2463 10.0575C13.2463 11.8357 11.8044 13.2775 10.0263 13.2775C8.24817 13.2775 6.80711 11.8357 6.80711 10.0575ZM5.06646 10.0575C5.06646 12.7969 7.28697 15.0174 10.0263 15.0174C12.7656 15.0174 14.9861 12.7969 14.9861 10.0575C14.9861 7.31822 12.7656 5.09771 10.0263 5.09771C7.28697 5.09771 5.06654 7.31807 5.06654 10.0575H5.06646ZM14.0235 4.90105C14.0234 5.1303 14.0913 5.35442 14.2186 5.54508C14.3458 5.73575 14.5268 5.88438 14.7386 5.9722C14.9503 6.06001 15.1834 6.08306 15.4082 6.03842C15.6331 5.99379 15.8397 5.88348 16.0018 5.72144C16.164 5.55941 16.2745 5.35292 16.3193 5.1281C16.3641 4.90327 16.3412 4.67021 16.2536 4.45838C16.166 4.24654 16.0175 4.06546 15.8269 3.93802C15.6363 3.81058 15.4123 3.74251 15.183 3.74242H15.1826C14.8753 3.74256 14.5806 3.86466 14.3633 4.08191C14.146 4.29915 14.0237 4.59376 14.0235 4.90105ZM6.12402 17.9199C5.18229 17.877 4.67044 17.7202 4.33028 17.5876C3.87932 17.4121 3.55755 17.203 3.21925 16.8651C2.88095 16.5273 2.67154 16.2058 2.49675 15.7549C2.36415 15.4149 2.20729 14.9029 2.16448 13.9611C2.11765 12.943 2.1083 12.6371 2.1083 10.0577C2.1083 7.47825 2.11842 7.17326 2.16448 6.15426C2.20736 5.21254 2.36539 4.70153 2.49675 4.36053C2.67231 3.90956 2.88141 3.5878 3.21925 3.2495C3.55709 2.9112 3.87854 2.70179 4.33028 2.527C4.67028 2.3944 5.18229 2.23753 6.12402 2.19472C7.14216 2.14789 7.44801 2.13855 10.0263 2.13855C12.6046 2.13855 12.9107 2.14851 13.9297 2.19488C14.8715 2.23776 15.3825 2.39579 15.7235 2.52715C16.1744 2.70194 16.4962 2.91181 16.8345 3.24965C17.1728 3.58749 17.3814 3.90972 17.557 4.36068C17.6896 4.70068 17.8465 5.21269 17.8893 6.15442C17.9361 7.17341 17.9454 7.47841 17.9454 10.0579C17.9454 12.6373 17.9361 12.9423 17.8893 13.9613C17.8464 14.903 17.6887 15.4149 17.557 15.755C17.3814 16.206 17.1723 16.5278 16.8345 16.8653C16.4967 17.2028 16.1744 17.4122 15.7235 17.5878C15.3835 17.7204 14.8715 17.8772 13.9297 17.9201C12.9116 17.9669 12.6057 17.9762 10.0263 17.9762C7.44685 17.9762 7.14185 17.9669 6.12402 17.9201V17.9199ZM6.04404 0.456933C5.01577 0.50376 4.31313 0.666806 3.6995 0.905579C3.0644 1.15216 2.52604 1.48296 1.98845 2.0197C1.45086 2.55644 1.12091 3.09487 0.874329 3.73075C0.635556 4.34476 0.47251 5.04702 0.425683 6.07529C0.378083 7.10518 0.367188 7.43444 0.367188 10.0575C0.367188 12.6806 0.378083 13.0099 0.425683 14.0398C0.47251 15.0681 0.635556 15.7703 0.874329 16.3843C1.12091 17.0194 1.45094 17.5589 1.98845 18.0954C2.52596 18.6319 3.06362 18.9622 3.6995 19.2095C4.31429 19.4483 5.01577 19.6113 6.04404 19.6582C7.07447 19.705 7.40319 19.7167 10.0263 19.7167C12.6494 19.7167 12.9787 19.7058 14.0086 19.6582C15.0369 19.6113 15.7391 19.4483 16.3531 19.2095C16.9882 18.9622 17.5266 18.6321 18.0641 18.0954C18.6017 17.5587 18.931 17.0194 19.1783 16.3843C19.417 15.7703 19.5809 15.0681 19.6269 14.0398C19.6737 13.0091 19.6846 12.6806 19.6846 10.0575C19.6846 7.43444 19.6737 7.10518 19.6269 6.07529C19.5801 5.04694 19.417 4.34438 19.1783 3.73075C18.931 3.09565 18.6009 2.55729 18.0641 2.0197C17.5274 1.48211 16.9882 1.15216 16.3539 0.905579C15.7391 0.666806 15.0368 0.502988 14.0093 0.456933C12.9793 0.409874 12.6502 0.398438 10.0275 0.398438C7.40474 0.398438 7.07486 0.409333 6.04443 0.456933" fill="white"/>
-                        </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col gap-3 w-min <xl:hidden">
-                <strong class="text-ninja-70 text-4.5xl font-body">#NinjaSushi</strong>
-                <div class="text-ninja-69 text-base">Ninja Sushi в фотографиях наших клиентов</div>
-                <button class="text-ninja-250 font-medium py-4 bg-ninja-50 rounded-xl">Перейти в instagram</button>
-            </div>
-        </div>
-    </footer>
-</template>
-
 <script setup lang="ts">
-import AppLogo from '@/UI/AppLogo.vue';
-
-
+import IconFacebook from '@/components/icons/IconFacebook.vue'
+import IconInsta from '@/components/icons/IconInsta.vue'
+import AppLogo from '@/components/UI/AppLogo.vue'
 </script>
+
+<template>
+  <footer class="bg-white w-full py-16 rounded-t-3xl">
+    <div class="container mx-auto flex <lg:(flex-col-reverse items-center) justify-between items-start">
+      <div class="flex flex-col justify-center lg:justify-start gap-4">
+        <AppLogo class="justify-center" />
+        <div class="flex gap-3.5 <lg:hidden">
+          <a href="https://apps.apple.com/ua/app/ninja-sushi/id1437544985" target="_blank" rel="noopener noreferrer">
+            <img src="/app-store.png" alt="App store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.ninjasushi.ninjasushi">
+            <img src="/google-play.png" alt="Google play">
+          </a>
+        </div>
+        <div class="text-ninja-60 text-sm font-medium">
+          © Ninja Sushi. All rights reserved.
+        </div>
+      </div>
+      <div class="lg:(flex justify-between flex-grow-[0.6]) grid grid-cols-2 grid-rows-2 gap-y-8">
+        <nav class="flex flex-col gap-2">
+          <div class="text-ninja-100 font-normal text-sm">
+            Навигация:
+          </div>
+          <router-link to="/" class="footer-item">
+            Главная
+          </router-link>
+          <router-link to="" class="footer-item">
+            Меню
+          </router-link>
+          <router-link to="" class="footer-item">
+            Доставка
+          </router-link>
+          <router-link to="" class="footer-item">
+            Вакансии
+          </router-link>
+          <router-link to="" class="footer-item">
+            Новости
+          </router-link>
+        </nav>
+        <div class="flex flex-col gap-2">
+          <div class="text-ninja-100 font-normal text-sm">
+            Оформить заказ:
+          </div>
+          <a href="tel:+38-067-436-61-27" class="footer-item">+38 (067) 436 61 27</a>
+          <a href="tel:+38-066-031-76-30" class="footer-item">+38 (066) 031 76 30</a>
+          <a href="tel:+38-093-924-98-28" class="footer-item">+38 (093) 924 98 28</a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="text-ninja-100 font-normal text-sm">
+            Время работы:
+          </div>
+          <b class="footer-item">с 11:00 до 22:45</b>
+          <b class="footer-item">с 22.45 до 06.00</b>
+          <div>Ночная доставка</div>
+        </div>
+        <div>
+          <div class="text-ninja-100 mb-2 font-normal text-sm">
+            Мы в соц. сетях:
+          </div>
+          <div class="flex gap-3 items-center">
+            <button class="rounded-lg bg-ninja-60 w-7 h-7 flex items-end justify-center hover:bg-blue-700">
+              <IconFacebook />
+            </button>
+            <button class="hover:bg-gradient-18 rounded-lg bg-ninja-60 w-7 h-7 flex items-center justify-center">
+              <IconInsta />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3 w-min <xl:hidden">
+        <strong class="text-ninja-70 text-4.5xl font-body">#NinjaSushi</strong>
+        <div class="text-ninja-60 text-base">
+          Ninja Sushi в фотографиях наших клиентов
+        </div>
+        <button class="text-ninja-250 font-medium py-4 bg-ninja-50 rounded-xl">
+          Перейти в instagram
+        </button>
+      </div>
+    </div>
+  </footer>
+</template>
 
 <style scoped>
 .footer-item {
