@@ -1,5 +1,6 @@
 import { defineConfig } from 'windicss/helpers'
 import formsPlugin from 'windicss/plugin/forms'
+import scrollSnapPlugin from 'windicss/plugin/scroll-snap'
 import defaultTheme from 'windicss/defaultTheme'
 export default defineConfig({
   darkMode: 'class',
@@ -16,11 +17,12 @@ export default defineConfig({
           270: '#CCF5D5',
           300: '#D2D2D7',
           400: '#FF6633',
+          470: '#FBDCD5',
         },
       },
       fontSize: {
         '4.5xl': ['2.625rem', '4rem'],
-        '2.7xl': ['1.688rem', '2rem']
+        '2.7xl': ['1.688rem', '2rem'],
       },
     },
     fontFamily: {
@@ -31,5 +33,5 @@ export default defineConfig({
     exclude: ['node_modules/**/*', '.git/**/*'],
     include: ['index.html', 'src/**/*.{vue,html,jsx,tsx}'],
   },
-  plugins: [formsPlugin],
+  plugins: [formsPlugin, scrollSnapPlugin],
 })
