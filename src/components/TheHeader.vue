@@ -31,16 +31,16 @@ import IconMenu from '@/components/icons/IconMenu.vue'
         </a>
       </nav>
       <div class="flex justify-between gap-2 sm:gap-4  lg:gap-3 py-2 lg:py-3">
-        <button class="group header-btn header-btn_mdfs">
+        <button class="group header-btn btn_mdfs">
           <IconBell class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
-        <button class="group header-btn header-btn_mdfs">
+        <button class="group header-btn btn_mdfs">
           <IconHeart class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
-        <button class="group header-btn header-btn_mdfs">
+        <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'profile' })">
           <IconUser class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
-        <button class="!<lg:hidden group header-btn header-btn_mdfs">
+        <button class="!<lg:hidden group header-btn btn_mdfs">
           <IconCard class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
           <div class="font-medium text-base">
             Корзина
@@ -61,7 +61,7 @@ import IconMenu from '@/components/icons/IconMenu.vue'
 .header-btn {
   @apply p-2.5 rounded-lg lg:(p-4) sm:rounded-xl border border-ninja-300 flex justify-center items-center gap-2 cursor-pointer shadow-sm
 }
-.header-btn_mdfs {
-    @apply hover:(bg-ninja-200 border-ninja-200 text-ninja-400 fill-white) active:(bg-ninja-400 text-white border-ninja-400 fill-ninja-400)
+.btn_mdfs {
+  @apply hover:(bg-ninja-200 border-ninja-200 text-ninja-400) active:(bg-ninja-400 text-white border-ninja-400)
 }
 </style>
