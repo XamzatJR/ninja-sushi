@@ -5,7 +5,7 @@
             <img src="/order-history.png" alt="Order history picture">
             <div class="">
                 <div class="font-medium text-3.5xl text-ninja-70 mb-2">У вас нет заказов</div>
-                <p class="text-ninja-100 text-base">Переходите в интересующую вас категорию <br> и сделайте свой первый заказ</p>
+                <p class="text-ninja-100 text-sm">Переходите в интересующую вас категорию <br> и сделайте свой первый заказ</p>
             </div>
         </div>
     </section>
