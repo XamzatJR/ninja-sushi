@@ -1,6 +1,6 @@
 {
   "name": "ninja-sushi",
-  "version": "0.0.0",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -37,5 +37,5 @@
     "vue-tsc": "^1.0.12",
     "windicss": "^3.5.6"
   },
-  "packageManager": "pnpm@7.26.2"
+  "packageManager": "pnpm@8.0.0"
 }
