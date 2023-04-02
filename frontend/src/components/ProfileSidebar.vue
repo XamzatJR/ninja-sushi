@@ -23,19 +23,19 @@ const activeTab = ref(name)
 
 
 const tabs = [
-  { id: 0, icon: IconArchive, text: 'История Заказов', name: 'history' },
-  { id: 1, icon: IconHeart, text: 'Избранные товары', name: 'favorite' },
-  { id: 2, icon: IconLocation, text: 'Адрес доставки', name: 'shipping' },
-  { id: 3, icon: IconSun, text: 'Тема сайта', name: undefined },
+  { id: 0, icon: IconArchive, text: 'История Заказов', name: 'history', styles: 'fill-ninja-70' },
+  { id: 1, icon: IconHeart, text: 'Избранные товары', name: 'favorite', styles: 'stroke-ninja-70' },
+  { id: 2, icon: IconLocation, text: 'Адрес доставки', name: 'shipping', styles: 'fill-ninja-70' },
+  { id: 3, icon: IconSun, text: 'Тема сайта', name: undefined, styles: 'fill-ninja-70' },
 ]
 </script>
 
 <template>
   <aside class="flex flex-col gap-4">
     <div class="flex flex-col gap-3">
-      <router-link v-for="{ icon, text, id, name } in tabs" :key="id" :to="{name}" class="py-2.5 pl-3 pr-5 bg-transparent flex items-center rounded-xl gap-3 group" :class="{ tab_active: name === activeTab, btn_mdfs: name !== activeTab }" @click="() => activeTab = name">
+      <router-link v-for="{ icon, text, id, name, styles } in tabs" :key="id" :to="{name}" class="py-2.5 pl-3 pr-5 bg-transparent flex items-center rounded-xl gap-3 group" :class="{ tab_active: name === activeTab, btn_mdfs: name !== activeTab }" @click="() => activeTab = name">
         <div class="p-2.5 rounded-xl bg-white border border-white" :class="{ 'group-hover:(bg-ninja-200 border-ninja-200)': name !== activeTab }">
-          <component :is="icon" class="fill-ninja-70" />
+          <component :is="icon" :class="styles" />
         </div>
         <div class="text-base font-semibold">
           {{ text }}

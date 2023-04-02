@@ -35,7 +35,7 @@ import IconMenu from '@/components/icons/IconMenu.vue'
           <IconBell class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
         <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'favorite' })">
-          <IconHeart class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
+          <IconHeart class="<sm:(w-5 h-5) stroke-ninja-100 group-hover:stroke-ninja-400 group-active:stroke-white" />
         </button>
         <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'profile' })">
           <IconUser class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
