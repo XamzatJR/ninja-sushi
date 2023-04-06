@@ -4,15 +4,15 @@ import IconMinus from '@/components/icons/IconMinus.vue'
 
 const props = defineProps<{ count: number }>()
 const emit = defineEmits<{
-  (e: 'count-changed', value: number): void
+  (e: 'countChanged', value: number): void
 }>()
 
 const incrementCount = () => {
-  emit('count-changed', props.count + 1)
+  emit('countChanged', props.count + 1)
 }
 
 const decrementCount = () => {
-  emit('count-changed', props.count - 1)
+  emit('countChanged', props.count - 1)
 }
 </script>
 
