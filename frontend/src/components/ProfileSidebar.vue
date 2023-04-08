@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
+import { useRoute } from 'vue-router'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconArchive from '@/components/icons/IconArchive.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import IconLocation from '@/components/icons/IconLocation.vue'
 import IconSun from '@/components/icons/IconSun.vue'
-import { useRoute } from 'vue-router'
 
 const props = withDefaults(defineProps<{
   name: string
@@ -18,10 +18,14 @@ const props = withDefaults(defineProps<{
   phoneNumber: '+380976986848',
 })
 
-const {name} = useRoute()
-const activeTab = ref(name)
+const route = useRoute()
 
-
+const activeTab = ref(route.name)
+watch(
+  () => route.name, 
+  (newName) => {
+    activeTab.value = newName
+})
 const tabs = [
   { id: 0, icon: IconArchive, text: 'История Заказов', name: 'history', styles: 'fill-ninja-70' },
   { id: 1, icon: IconHeart, text: 'Избранные товары', name: 'favorite', styles: 'stroke-ninja-70' },
@@ -33,7 +37,7 @@ const tabs = [
 <template>
   <aside class="flex flex-col gap-4">
     <div class="flex flex-col gap-3">
-      <router-link v-for="{ icon, text, id, name, styles } in tabs" :key="id" :to="{name}" class="py-2.5 pl-3 pr-5 bg-transparent flex items-center rounded-xl gap-3 group" :class="{ tab_active: name === activeTab, btn_mdfs: name !== activeTab }" @click="() => activeTab = name">
+      <router-link v-for="{ icon, text, id, name, styles } in tabs" :key="id" :to="{ name }" class="py-2.5 pl-3 pr-5 bg-transparent flex items-center rounded-xl gap-3 group" :class="{ tab_active: name === activeTab, btn_mdfs: name !== activeTab }" @click="() => activeTab = name">
         <div class="p-2.5 rounded-xl bg-white border border-white" :class="{ 'group-hover:(bg-ninja-200 border-ninja-200)': name !== activeTab }">
           <component :is="icon" :class="styles" />
         </div>
