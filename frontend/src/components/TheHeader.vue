@@ -6,10 +6,25 @@ import IconCard from '@/components/icons/IconCard.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import IconPhone from '@/components/icons/IconPhone.vue'
 import IconMenu from '@/components/icons/IconMenu.vue'
+import CardTooltip from './CardTooltip.vue'
+import { ref } from 'vue'
+
+let isTooltipOpen = ref(false)
+let toolTipTimerId: undefined | number;
+function closeTooltip() {
+  toolTipTimerId = setTimeout(() => {
+    isTooltipOpen.value = false
+  }, 500)
+}
+function openTooltip() {
+  clearTimeout(toolTipTimerId)
+  isTooltipOpen.value = true
+}
+
 </script>
 
 <template>
-  <header class="bg-white w-full rounded-xl">
+  <header class="bg-white w-full rounded-xl relative">
     <div class="container mx-auto px-4 <sm:px-2 h-full flex items-center justify-between">
       <AppLogo />
       <nav class="<lg:hidden flex justify-between flex-grow-[0.5] items-center">
@@ -40,7 +55,10 @@ import IconMenu from '@/components/icons/IconMenu.vue'
         <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'profile' })">
           <IconUser class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
-        <button class="!<lg:hidden group header-btn btn_mdfs">
+        <button class="!<lg:hidden group header-btn btn_mdfs" 
+        @mouseover="() => isTooltipOpen = true"
+        @mouseleave="closeTooltip"
+        >
           <IconCard class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
           <div class="font-medium text-base">
             Корзина
@@ -50,6 +68,10 @@ import IconMenu from '@/components/icons/IconMenu.vue'
           <IconMenu class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400" />
         </button>
       </div>
+      <CardTooltip v-show="isTooltipOpen" @closeTooltip="() => isTooltipOpen = false"
+      @mouseover="openTooltip"
+      @mouseleave="closeTooltip"
+      />
     </div>
   </header>
 </template>
