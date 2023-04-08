@@ -30,7 +30,7 @@ const routes = [
       },
     ],
   },
-  { path: '/card', name: 'card', component: () => import('@/views/Card.vue') },
+  { path: '/cart', name: 'cart', component: () => import('@/views/Cart.vue') },
   { path: '/product/:id', name: 'product', component: () => import('@/views/Product.vue') },
   {
     path: '/:catchAll(.*)',

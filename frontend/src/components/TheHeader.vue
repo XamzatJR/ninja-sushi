@@ -2,11 +2,11 @@
 import AppLogo from '@/components/UI/AppLogo.vue'
 import IconBell from '@/components/icons/IconBell.vue'
 import IconUser from '@/components/icons/IconUser.vue'
-import IconCard from '@/components/icons/IconCard.vue'
+import IconCart from '@/components/icons/IconCart.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import IconPhone from '@/components/icons/IconPhone.vue'
 import IconMenu from '@/components/icons/IconMenu.vue'
-import CardTooltip from './CardTooltip.vue'
+import CartTooltip from '@/components/CartTooltip.vue'
 import { ref } from 'vue'
 
 let isTooltipOpen = ref(false)
@@ -59,7 +59,7 @@ function openTooltip() {
         @mouseover="() => isTooltipOpen = true"
         @mouseleave="closeTooltip"
         >
-          <IconCard class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
+          <IconCart class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
           <div class="font-medium text-base">
             Корзина
           </div>
@@ -68,7 +68,7 @@ function openTooltip() {
           <IconMenu class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400" />
         </button>
       </div>
-      <CardTooltip v-show="isTooltipOpen" @closeTooltip="() => isTooltipOpen = false"
+      <CartTooltip v-show="isTooltipOpen" @closeTooltip="() => isTooltipOpen = false"
       @mouseover="openTooltip"
       @mouseleave="closeTooltip"
       />
