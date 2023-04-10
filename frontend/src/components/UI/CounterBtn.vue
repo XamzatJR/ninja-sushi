@@ -2,7 +2,7 @@
 import IconPlus from '@/components/icons/IconPlus.vue'
 import IconMinus from '@/components/icons/IconMinus.vue'
 
-const props = defineProps<{ count: number }>()
+const props = defineProps<{ count: number; btnClass: 'card' | 'tooltip-card' }>()
 const emit = defineEmits<{
   (e: 'countChanged', value: number): void
 }>()
@@ -22,17 +22,28 @@ const decrementCount = () => {
       <IconPlus class="fill-ninja-250 group-hover:fill-white" />
     </button>
     <template v-else>
-      <button class="p-1.5 rounded-xl bg-ninja-270 hover:bg-ninja-250 group" @click="decrementCount">
-        <IconMinus class="fill-ninja-250 group-hover:fill-white" />
+      <button class="group flex items-center justify-center" :class="[btnClass]" @click="decrementCount">
+        <IconMinus :class="[`${btnClass}-svg`]" />
       </button>
       <strong class="font-semibold text-base text-ninja-70">{{ count }}</strong>
-      <button class="p-1.5 rounded-xl bg-ninja-270 hover:bg-ninja-250 group" @click="incrementCount">
-        <IconPlus class="fill-ninja-250 group-hover:fill-white" />
+      <button class="group flex items-center justify-center" :class="[btnClass]" @click="incrementCount">
+        <IconPlus :class="[`${btnClass}-svg`]" />
       </button>
     </template>
   </div>
 </template>
 
 <style scoped>
-
+.card {
+  @apply p-1.5 rounded-xl bg-ninja-270 hover:bg-ninja-250
+}
+.card-svg {
+  @apply fill-ninja-250 group-hover:fill-white
+}
+.tooltip-card {
+  @apply p-1.5 bg-white rounded-lg hover:bg-ninja-400 active:bg-red-600
+}
+.tooltip-card-svg {
+  @apply w-[18px] h-[18px] fill-ninja-70 group-hover:fill-white
+}
 </style>
