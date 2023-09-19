@@ -6,6 +6,13 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
+export enum FoodType {
+  Rolls = 1,
+  Sushi,
+  Sets,
+  Snacks,
+  Drinks,
+}
 export interface Database {
   public: {
     Tables: {
