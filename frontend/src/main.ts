@@ -3,9 +3,9 @@ import { createPinia } from 'pinia'
 import 'virtual:windi.css'
 
 import { VueQueryPlugin, type VueQueryPluginOptions } from '@tanstack/vue-query'
+import { plugin as formkit, defaultConfig as formkitConfig } from '@formkit/vue'
 import App from './App.vue'
 import router from './router'
-
 const vueQueryOptions: VueQueryPluginOptions = {
   queryClientConfig: {
     defaultOptions: {
@@ -23,5 +23,6 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.use(VueQueryPlugin, vueQueryOptions)
+app.use(formkit, formkitConfig())
 
 app.mount('#app')

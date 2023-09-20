@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@formkit/vue": "^1.0.0",
     "@supabase/supabase-js": "^2.33.2",
     "@tanstack/vue-query": "^4.35.3",
     "pinia": "^2.1.6",
