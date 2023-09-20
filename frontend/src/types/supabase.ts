@@ -1,11 +1,3 @@
-export type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | { [key: string]: Json | undefined }
-  | Json[]
-
 export enum FoodType {
   Rolls = 1,
   Sushi,
@@ -21,7 +13,7 @@ export interface Database {
           dish_id: number
           food_type_id: number
           img: string
-          ingredients: Json | null
+          ingredients: string[] | null
           name: string
           price: number | null
           quantity: number | null
@@ -31,7 +23,7 @@ export interface Database {
           dish_id?: number
           food_type_id: number
           img?: string
-          ingredients?: Json | null
+          ingredients?: string[] | null
           name: string
           price?: number | null
           quantity?: number | null
@@ -41,7 +33,7 @@ export interface Database {
           dish_id?: number
           food_type_id?: number
           img?: string
-          ingredients?: Json | null
+          ingredients?: string[] | null
           name?: string
           price?: number | null
           quantity?: number | null
