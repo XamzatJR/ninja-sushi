@@ -1,16 +1,22 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import LoginForm from './LoginForm.vue'
 import AppLogo from '@/components/UI/AppLogo.vue'
-import IconBell from '@/components/icons/IconBell.vue'
 import IconUser from '@/components/icons/IconUser.vue'
 import IconCart from '@/components/icons/IconCart.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import IconPhone from '@/components/icons/IconPhone.vue'
 import IconMenu from '@/components/icons/IconMenu.vue'
 import CartTooltip from '@/components/CartTooltip.vue'
-import { ref } from 'vue'
+import { useUserStore } from '@/stores/user'
 
-let isTooltipOpen = ref(false)
-let toolTipTimerId: undefined | number;
+const { user } = storeToRefs(useUserStore())
+const router = useRouter()
+const isTooltipOpen = ref(false)
+const isUserLogin = ref(true)
+let toolTipTimerId: undefined | number
 function closeTooltip() {
   toolTipTimerId = setTimeout(() => {
     isTooltipOpen.value = false
@@ -20,7 +26,15 @@ function openTooltip() {
   clearTimeout(toolTipTimerId)
   isTooltipOpen.value = true
 }
-
+function handleProfile() {
+  // if (user.value.authenticated) {
+  //   isUserLogin.value = true
+  //   router.push({ name: 'profile' })
+  // }
+  // else {
+  //   isUserLogin.value = false
+  // }
+}
 </script>
 
 <template>
@@ -46,18 +60,16 @@ function openTooltip() {
         </a>
       </nav>
       <div class="flex justify-between gap-2 sm:gap-4  lg:gap-3 py-2 lg:py-3">
-        <button class="group header-btn btn_mdfs">
-          <IconBell class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
-        </button>
         <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'favorite' })">
           <IconHeart class="<sm:(w-5 h-5) stroke-ninja-100 group-hover:stroke-ninja-400 group-active:stroke-white" />
         </button>
-        <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'profile' })">
+        <button class="group header-btn btn_mdfs" @click="handleProfile">
           <IconUser class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
-        <button class="!<lg:hidden group header-btn btn_mdfs" 
-        @mouseover="() => isTooltipOpen = true"
-        @mouseleave="closeTooltip"
+        <button
+          class="!<lg:hidden group header-btn btn_mdfs"
+          @mouseover="() => isTooltipOpen = true"
+          @mouseleave="closeTooltip"
         >
           <IconCart class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
           <div class="font-medium text-base">
@@ -68,10 +80,12 @@ function openTooltip() {
           <IconMenu class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400" />
         </button>
       </div>
-      <CartTooltip v-show="isTooltipOpen" @closeTooltip="() => isTooltipOpen = false"
-      @mouseover="openTooltip"
-      @mouseleave="closeTooltip"
+      <CartTooltip
+        v-show="isTooltipOpen" @close-tooltip="() => isTooltipOpen = false"
+        @mouseover="openTooltip"
+        @mouseleave="closeTooltip"
       />
+      <LoginForm v-if="!isUserLogin" @close-login="() => isUserLogin = true" />
     </div>
   </header>
 </template>
