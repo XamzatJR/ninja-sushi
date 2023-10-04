@@ -6,6 +6,7 @@ export const registerSchema = z.object({
     .min(6, 'Пароль должен быть не меньше 6 символов')
     .max(24, 'Пароль должен быть не больше 24 символов')
     .regex(/^[a-zA-Z0-9_]*$/, 'Неверный пароль'),
+  first_name: z.string({required_error: 'Имя не указано'}).nonempty('Имя не указано').min(3, 'Имя не должно быть меньше 3 символов').max(18, 'Имя не должно быть больше 18 символов')
 })
 
 export const loginSchema = z.object({
