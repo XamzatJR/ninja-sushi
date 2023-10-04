@@ -3,19 +3,19 @@ import IconClose from '@/components/icons/IconClose.vue'
 
 defineProps<{ title: string }>()
 defineEmits<{
-  closeLogin: [value: boolean]
+  close: [value: boolean]
 }>()
 </script>
 
 <template>
   <div
     class="fixed z-10 top-0 left-0 w-full h-full flex items-end justify-end md:(items-center justify-center) bg-ninja-70/40"
-    @click.self="() => $emit('closeLogin')"
+    @click.self="() => $emit('close', false)"
   >
     <section class="bg-white w-full flex flex-col gap-4 p-4 md:(p-6 max-w-sm rounded-xl) rounded-t-xl">
       <button
         class="p-1.5 bg-ninja-50 flex items-center justify-center rounded-lg self-end"
-        @click="() => $emit('closeLogin')"
+        @click="() => $emit('close', false)"
       >
         <IconClose class="fill-ninja-70" />
       </button>
