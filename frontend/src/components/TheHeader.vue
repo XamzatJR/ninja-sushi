@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
-import LoginForm from './LoginForm.vue'
+import LoginForm from '@/components/Auth/LoginForm.vue'
 import AppLogo from '@/components/UI/AppLogo.vue'
 import IconUser from '@/components/icons/IconUser.vue'
 import IconCart from '@/components/icons/IconCart.vue'
@@ -11,29 +11,28 @@ import IconPhone from '@/components/icons/IconPhone.vue'
 import IconMenu from '@/components/icons/IconMenu.vue'
 import CartTooltip from '@/components/CartTooltip.vue'
 import { useUserStore } from '@/stores/user'
+import {useAuth} from '@/composables/useAuth'
+import RegisterForm from './Auth/RegisterForm.vue'
 
 const { user } = storeToRefs(useUserStore())
 const router = useRouter()
+const { isLoginOpen, isRegisterOpen } = useAuth()
 const isTooltipOpen = ref(false)
-const isUserLogin = ref(true)
-let toolTipTimerId: undefined | number
+let toolTipTimerId: NodeJS.Timeout
+
 function closeTooltip() {
   toolTipTimerId = setTimeout(() => {
     isTooltipOpen.value = false
   }, 500)
 }
+
 function openTooltip() {
   clearTimeout(toolTipTimerId)
   isTooltipOpen.value = true
 }
+
 function handleProfile() {
-  // if (user.value.authenticated) {
-  //   isUserLogin.value = true
-  //   router.push({ name: 'profile' })
-  // }
-  // else {
-  //   isUserLogin.value = false
-  // }
+  isLoginOpen.value = true
 }
 </script>
 
@@ -85,7 +84,10 @@ function handleProfile() {
         @mouseover="openTooltip"
         @mouseleave="closeTooltip"
       />
-      <LoginForm v-if="!isUserLogin" @close-login="() => isUserLogin = true" />
+      <Teleport to="#modal">
+        <LoginForm v-if="isLoginOpen" />
+        <RegisterForm v-if="isRegisterOpen" />
+      </Teleport>
     </div>
   </header>
 </template>
