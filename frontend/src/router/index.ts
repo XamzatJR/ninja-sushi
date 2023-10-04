@@ -1,24 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
-  { 
-    path: '/', 
-    name: 'home', 
-    component: () => import('@/views/Home.vue') 
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@/views/Home.vue'),
   },
-  { 
-    path: '/about', 
-    name: 'about', 
-    component: () => import('@/views/About.vue') 
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/views/About.vue'),
   },
-  { 
-    path: '/cart', 
-    name: 'cart', 
-    component: () => import('@/views/Cart.vue') 
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/Cart.vue'),
   },
-  { 
-    path: '/product/:id', 
-    name: 'product', 
-    component: () => import('@/views/Product.vue') 
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: () => import('@/views/Product.vue'),
   },
   {
     path: '/:catchAll(.*)',
