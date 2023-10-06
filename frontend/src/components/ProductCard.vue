@@ -28,7 +28,7 @@ function addToFavorite() {
 <template>
   <article class="p-3 flex w-full sm:(p-6 flex-col gap-4 w-[calc(25%-24px)]) rounded-xl hover:shadow-lg bg-white">
     <div class="relative">
-      <img :src="product.img" class="w-24 h-24 sm:(w-full h-[245px])" :alt="product.name">
+      <img :src="product.img" loading="lazy" class="w-24 h-24 cursor-pointer sm:(w-full h-[245px])" :alt="product.name">
       <!-- <div class="absolute top-0 left-0 flex items-center gap-1">
         <span
           v-for="status in product.status"
@@ -39,7 +39,7 @@ function addToFavorite() {
       </div> -->
     </div>
     <div class="flex flex-col gap-1.5">
-      <div class="text-ninja-70 font-bold text-base sm:text-2.7xl">
+      <div class="text-ninja-70 font-bold text-base sm:text-2.7xl cursor-pointer">
         {{ product.name }}
       </div>
       <div>
@@ -55,7 +55,7 @@ function addToFavorite() {
       </div>
       <div class="flex justify-between items-center">
         <strong class="text-ninja-70 font-bold text-2xl sm:text-[2.5rem]">
-          {{ product.price }} <span class="text-ninja-100 text-2xl">грн</span>
+          {{ product.price }} <span class="text-ninja-100 text-2xl">руб</span>
         </strong>
         <AddFavouriteBtn v-show="count < 1" :is-favorite="true" @click="addToFavorite" />
         <CounterBtn btn-class="card" :count="count" @count-changed="handleCountChanged" />
