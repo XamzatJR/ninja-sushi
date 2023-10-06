@@ -22,7 +22,7 @@ export default defineConfig({
       },
       fontSize: {
         '4.5xl': ['2.625rem', '4rem'],
-        '2.7xl': ['1.688rem', '2rem'],
+        '2.7xl': ['1.75rem', '2rem'],
         '3.5xl': ['2rem', '2.5rem'],
       },
     },

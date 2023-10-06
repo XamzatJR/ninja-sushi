@@ -1,15 +1,43 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import LoginForm from '@/components/Auth/LoginForm.vue'
 import AppLogo from '@/components/UI/AppLogo.vue'
-import IconBell from '@/components/icons/IconBell.vue'
 import IconUser from '@/components/icons/IconUser.vue'
-import IconCard from '@/components/icons/IconCard.vue'
+import IconCart from '@/components/icons/IconCart.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import IconPhone from '@/components/icons/IconPhone.vue'
 import IconMenu from '@/components/icons/IconMenu.vue'
+import CartTooltip from '@/components/CartTooltip.vue'
+import { useUserStore } from '@/stores/user'
+import {useAuth} from '@/composables/useAuth'
+import RegisterForm from './Auth/RegisterForm.vue'
+
+const { user } = storeToRefs(useUserStore())
+const router = useRouter()
+const { isLoginOpen, isRegisterOpen } = useAuth()
+const isTooltipOpen = ref(false)
+let toolTipTimerId: NodeJS.Timeout
+
+function closeTooltip() {
+  toolTipTimerId = setTimeout(() => {
+    isTooltipOpen.value = false
+  }, 500)
+}
+
+function openTooltip() {
+  clearTimeout(toolTipTimerId)
+  isTooltipOpen.value = true
+}
+
+function handleProfile() {
+  isLoginOpen.value = true
+}
 </script>
 
 <template>
-  <header class="bg-white w-full rounded-xl">
+  <header class="bg-white w-full rounded-xl relative">
     <div class="container mx-auto px-4 <sm:px-2 h-full flex items-center justify-between">
       <AppLogo />
       <nav class="<lg:hidden flex justify-between flex-grow-[0.5] items-center">
@@ -31,17 +59,18 @@ import IconMenu from '@/components/icons/IconMenu.vue'
         </a>
       </nav>
       <div class="flex justify-between gap-2 sm:gap-4  lg:gap-3 py-2 lg:py-3">
-        <button class="group header-btn btn_mdfs">
-          <IconBell class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
-        </button>
         <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'favorite' })">
-          <IconHeart class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
+          <IconHeart class="<sm:(w-5 h-5) stroke-ninja-100 group-hover:stroke-ninja-400 group-active:stroke-white" />
         </button>
-        <button class="group header-btn btn_mdfs" @click="() => $router.push({ name: 'profile' })">
+        <button class="group header-btn btn_mdfs" @click="handleProfile">
           <IconUser class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
         </button>
-        <button class="!<lg:hidden group header-btn btn_mdfs">
-          <IconCard class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
+        <button
+          class="!<lg:hidden group header-btn btn_mdfs"
+          @mouseover="() => isTooltipOpen = true"
+          @mouseleave="closeTooltip"
+        >
+          <IconCart class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400 group-active:fill-white" />
           <div class="font-medium text-base">
             Корзина
           </div>
@@ -50,6 +79,15 @@ import IconMenu from '@/components/icons/IconMenu.vue'
           <IconMenu class="<sm:(w-5 h-5) fill-ninja-100 group-hover:fill-ninja-400" />
         </button>
       </div>
+      <CartTooltip
+        v-show="isTooltipOpen" @close-tooltip="() => isTooltipOpen = false"
+        @mouseover="openTooltip"
+        @mouseleave="closeTooltip"
+      />
+      <Teleport to="#modal">
+        <LoginForm v-if="isLoginOpen" />
+        <RegisterForm v-if="isRegisterOpen" />
+      </Teleport>
     </div>
   </header>
 </template>

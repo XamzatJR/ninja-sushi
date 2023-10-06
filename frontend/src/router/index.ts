@@ -1,10 +1,34 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
-  { path: '/', name: 'home', component: () => import('@/views/Home.vue') },
-  { path: '/about', name: 'about', component: () => import('@/views/About.vue') },
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@/views/Home.vue'),
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/views/About.vue'),
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/Cart.vue'),
+  },
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: () => import('@/views/Product.vue'),
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: () => import('@/views/NotFound.vue'),
+  },
   {
     path: '/profile',
     name: 'profile',
+    meta: { requiresAuth: true },
     redirect: { name: 'history' },
     component: () => import('@/views/Profile.vue'),
     children: [
@@ -29,13 +53,6 @@ const routes = [
         component: () => import('@/components/EditUserModal.vue'),
       },
     ],
-  },
-  { path: '/card', name: 'card', component: () => import('@/views/Card.vue') },
-  { path: '/product/:id', name: 'product', component: () => import('@/views/Product.vue') },
-  {
-    path: '/:catchAll(.*)',
-    name: 'NotFound',
-    component: () => import('@/views/NotFound.vue'),
   },
 
 ]

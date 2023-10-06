@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import IconHeart from '@/components/icons/IconHeart.vue'
+defineProps<{
+  isFavorite: boolean
+}>()
 </script>
 
 <template>
-  <button class="p-2 sm:p-3 rounded-xl bg-ninja-50 ml-auto mr-3">
-    <IconHeart class="fill-ninja-400" />
+  <button
+    class="group p-2 sm:p-3 rounded-xl bg-ninja-50 ml-auto mr-3 hover:bg-ninja-60/20"
+    :class="{ 'bg-ninja-400': isFavorite }"
+  >
+    <IconHeart
+      class="fill-ninja-50 stroke-ninja-400"
+      :class="{ 'fill-white stroke-white': isFavorite }"
+    />
   </button>
 </template>
 
