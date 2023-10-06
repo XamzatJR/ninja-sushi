@@ -4,12 +4,9 @@ import type { z } from 'zod'
 import IconGoogle from '@/components/icons/IconGoogle.vue'
 import { loginSchema } from '@/components/Auth/schema'
 import AuthWrapper from '@/components/Auth/AuthWrapper.vue'
-import { loginWithGoogle } from '@/services/user'
-import { useUserStore } from '@/stores/user'
 import {useAuth} from '@/composables/useAuth'
 
-const { signin } = useUserStore()
-const { isLoginOpen, isRegisterOpen } = useAuth()
+const { isLoginOpen, isRegisterOpen, signin, signinWithGoogle } = useAuth()
 
 const [zodPlugin, submitHandler] = createZodPlugin(
   loginSchema,
@@ -65,7 +62,7 @@ function openRegister() {
       <FormKit
         type="button"
         input-class="w-full flex gap-3 justify-center items-center bg-ninja-50 py-3 rounded-xl font-medium text-base text-ninja-70"
-        @click="loginWithGoogle"
+        @click="signinWithGoogle"
       >
         <IconGoogle
           width="26" height="26"

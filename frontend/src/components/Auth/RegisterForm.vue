@@ -4,12 +4,10 @@ import type { z } from 'zod'
 import { registerSchema } from '@/components/Auth/schema'
 import AuthWrapper from '@/components/Auth/AuthWrapper.vue'
 import IconGoogle from '@/components/icons/IconGoogle.vue'
-import { useUserStore } from '@/stores/user'
 import { loginWithGoogle } from '@/services/user'
 import {useAuth} from '@/composables/useAuth'
 
-const { signup } = useUserStore()
-const { isLoginOpen, isRegisterOpen } = useAuth()
+const { isLoginOpen, isRegisterOpen, signup } = useAuth()
 
 const [zodPlugin, submitHandler] = createZodPlugin(
     registerSchema,
