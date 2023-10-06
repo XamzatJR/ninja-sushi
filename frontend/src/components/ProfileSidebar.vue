@@ -2,30 +2,23 @@
 import { ref, watch } from 'vue'
 
 import { useRoute } from 'vue-router'
+import type { User } from '@supabase/supabase-js'
 import IconEdit from '@/components/icons/IconEdit.vue'
 import IconArchive from '@/components/icons/IconArchive.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import IconLocation from '@/components/icons/IconLocation.vue'
 import IconSun from '@/components/icons/IconSun.vue'
 
-const props = withDefaults(defineProps<{
-  name: string
-  email: string
-  phoneNumber: string
-}>(), {
-  name: 'Ашот',
-  email: 'Lifetv277@gmaIl.com',
-  phoneNumber: '+380976986848',
-})
+defineProps<User>()
 
 const route = useRoute()
 
 const activeTab = ref(route.name)
 watch(
-  () => route.name, 
+  () => route.name,
   (newName) => {
     activeTab.value = newName
-})
+  })
 const tabs = [
   { id: 0, icon: IconArchive, text: 'История Заказов', name: 'history', styles: 'fill-ninja-70' },
   { id: 1, icon: IconHeart, text: 'Избранные товары', name: 'favorite', styles: 'stroke-ninja-70' },
@@ -53,7 +46,7 @@ const tabs = [
       <div class="flex flex-col gap-1.5">
         <div class="flex items-center justify-between">
           <div class="font-medium text-base text-ninja-70">
-            {{ props.name }}
+            {{ 'username' }}
           </div>
           <div
             class="p-1 bg-ninja-50 rounded cursor-pointer"
@@ -63,10 +56,10 @@ const tabs = [
           </div>
         </div>
         <div class="text-sm text-ninja-60">
-          {{ props.email }}
+          {{ email }}
         </div>
-        <div class="font-medium text-sm text-ninja-70">
-          {{ props.phoneNumber }}
+        <div v-if="phone" class="font-medium text-sm text-ninja-70">
+          {{ phone }}
         </div>
       </div>
     </div>
